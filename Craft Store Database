@@ -1,0 +1,34 @@
+-- Create a Craft Store Database
+
+CREATE TABLE Craft_Store (ID INTEGER PRIMARY KEY, Item text, quantity INTEGER, price INTEGER, sold INTEGER);
+
+INSERT into Craft_Store values 
+
+(1, "htv", 105, 12.99, 59),
+(2, "perm vinyl", 250, 8.99, 100),
+(3, "cutting mats", 199, 15.99, 43),
+(4, "red glitter", 44, 5.99, 143),
+(5, "blue glitter", 99, 5.99, 203),
+(6, "purple glitter", 102, 5.99, 132),
+(7, "pink glitter", 150, 5.99, 173),
+(8, "white glitter", 101, 5.99, 250),
+(9, "silver glitter", 84, 5.99, 192),
+(10, "gold glitter", 43, 5.99, 94),
+(11, "stemless glass", 100, 8.99, 161),
+(12, "stainless tumbler", 203, 10.99, 340), 
+(13, "white tumbler", 250, 10.99, 362),
+(14, "small adhesive", 109, 5.99, 203),
+(15, "large adhesive", 125, 8.99, 314);
+
+
+--What items are under 50 that will need to be reordered.
+SELECT * FROM Craft_store WHERE quantity <= 50;
+
+--How much inventory do we have on hand?
+SELECT SUM (quantity) FROM Craft_Store;
+
+--How many items have we sold?
+SELECT SUM (sold) From Craft_Store;
+
+--What are the top 5 most purchased items?
+SELECT item, sold FROM Craft_Store ORDER BY sold desc LIMIT 5;
