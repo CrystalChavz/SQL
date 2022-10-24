@@ -21,7 +21,7 @@ INSERT into Craft_Store values
 (15, "large adhesive", 125, 8.99, 314);
 
 
---What items are under 50 that will need to be reordered.
+--What item quantities are under 50?
 SELECT * FROM Craft_store WHERE quantity <= 50;
 
 --How much inventory do we have on hand?
