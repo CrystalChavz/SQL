@@ -156,3 +156,7 @@ SELECT * FROM topmovies
     GROUP BY rank
     HAVING Domestic > 350;
     
+/*What was the AVG world wide of all movies?*/
+
+SELECT AVG(worldwide) as total_gross_worldwide 
+    FROM topmovies;
