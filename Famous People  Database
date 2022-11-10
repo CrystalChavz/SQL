@@ -1,0 +1,62 @@
+CREATE TABLE famous_people  (id integer primary key, full_name text, age integer, net_worth integer, characters_id integer);
+
+INSERT INTO famous_people VALUES (1,"Daniel Radcliffe", 33, 110,1);
+INSERT INTO famous_people VALUES (2,"Emma Watson", 32, 85, 2);
+INSERT INTO famous_people VALUES (3,"Rupert Grint", 34, 50, 3);
+INSERT INTO famous_people VALUES (4,"Maggie Smith", 87, 20, 13);
+INSERT INTO famous_people VALUES (5, "Robbie Coltrane", 72, 4, 4);
+INSERT INTO famous_people VALUES (6, "Alan Rickman", 70, 16, 6);
+INSERT INTO famous_people VALUES (7, "David Wheeler", 59, 0.8, 5);
+INSERT INTO famous_people VALUES (8, "Tom Felton", 35, 20, 11);
+INSERT INTO famous_people VALUES (9, "Gary Oldman", 64, 40, 14);
+INSERT INTO famous_people VALUES (10, "Emma Thompson", 63,40,12);
+INSERT INTO famous_people VALUES (11, "Mirium Margolyes", 81, 6, 10);
+INSERT INTO famous_people VALUES (12, "Mathew Lewis", 33, 10, 15);
+INSERT INTO famous_people VALUES (13, "Bonnie Wright",31,40,8);
+INSERT INTO famous_people VALUES (14, "James Phelps",31,1,7);
+INSERT INTO famous_people VALUES (15, "Oliver Phelps", 31,1,9);
+
+
+CREATE TABLE characters (ID INTEGER PRIMARY KEY, full_name text, house_id INTEGER);
+INSERT INTO characters VALUES (1,"Harry Potter", 1);
+INSERT INTO characters VALUES (2,"Hermione Granger", 1);
+INSERT INTO characters VALUES (3,"Ronald Weasley", 1);
+INSERT INTO characters VALUES (4,"Hagrid", 1);
+INSERT INTO characters VALUES (5, "Remus Lupin", 1);
+INSERT INTO characters VALUES (6, "Professor Snape", 4);
+INSERT INTO characters VALUES (7, "Fred Weasley", 1);
+INSERT INTO characters VALUES (8, "Ginny Weasley", 1);
+INSERT INTO characters VALUES (9, "George Weasley", 1);
+INSERT INTO characters VALUES (10, "Professor Sprout", 2);
+INSERT INTO characters VALUES (11, "Draco Malfoy",4);
+INSERT INTO characters VALUES (12, "Professor Trelawney", 3);
+INSERT INTO characters VALUES (13, "Professor Mcgonnagal", 1);
+INSERT INTO characters VALUES (14, "Sirius Black", 1);
+INSERT INTO characters VALUES (15, "Neville Longbottom", 1);
+
+CREATE TABLE  houses (ID INTEGER PRIMARY KEY, house_name text, mascot text);
+INSERT INTO  houses VALUES (1,"Griffindor", "Lion");
+INSERT INTO houses VALUES (2, "Hufflepuff", "Badger");
+INSERT INTO houses VALUES (3, "Ravenclaw", "Eagle");
+INSERT INTO houses VALUES (4, "Slytherin","Snake");
+
+
+/* which actor played which character and what was their net worth*/
+SELECT famous_people.full_name, characters.full_name, famous_people.net_worth
+    FROM famous_people
+    JOIN characters
+    ON characters.id = famous_people.characters_id;
+    
+    
+/* Which actors net worth is 50 million or more?*/
+
+Select famous_people.full_name, famous_people.net_worth FROM famous_people
+    GROUP BY net_worth
+    HAVING net_worth >=50;
+    
+    /*Which characters belonged to which house*/
+SELECT characters.full_name, houses.house_name
+	FROM characters
+	JOIN houses
+	ON houses.id = characters.house_id;
+	
