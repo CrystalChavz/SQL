@@ -1,0 +1,30 @@
+/* What does the app's SQL look like? */
+# Here I created a table of what different groups posts would look like in SQL.
+
+CREATE table facebook_groups (id INTEGER, full_name TEXT, post text, location text);
+
+INSERT INTO facebook_groups VALUES ("1", "Crystal Chavez", "What are you having for dinner?", "Salty Squad");
+
+INSERT INTO facebook_groups VALUES ("2", "Jen Gordan", "Does anyone have any crockpot recipes?", "Salty Squad");
+
+INSERT INTO facebook_groups VALUES ("3", "Daisy Green", "How can I start the process of prepping, any advice is welcome!?", "Prepping");
+
+INSERT INTO facebook_groups VALUES ("4", "Alyssa Winter", "What is the best uses for sage", "Witches and Things");
+
+INSERT INTO facebook_groups VALUES  ("5", "Wendy Frost", "How long after expiration can dried goods be used?", "Salty Squad");
+
+INSERT INTO facebook_groups VALUES ("6", "Brian Holman", "Don't forget to blow cinnamon in your door tomorrow! Any other things you do for prosperity?", "Witches and Things");
+
+INSERT INTO facebook_groups VALUES ("7", "Molly Denali", "Any holistic book reccomendations?", "Prepping");
+
+SELECT * FROM facebook_groups;
+
+# I then updated a post
+UPDATE facebook_groups SET post = "What are you having for dinner? Edited to add i'm making loaded potato soup tonight!" WHERE id = "1";
+
+SELECT * FROM facebook_groups;
+
+# I then deleted a post
+DELETE FROM facebook_groups WHERE id = "6";
+
+SELECT * FROM facebook_groups;
